@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.util.ArrayList?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+   <children>
+      <MenuBar prefHeight="25.0" prefWidth="650.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Файл">
+            <items>
+              <MenuItem fx:id="menuItemExit" mnemonicParsing="false" onAction="#goOutFromMenuItem" text="Выход" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Помощь">
+            <items>
+              <MenuItem fx:id="menuItemAboutProgram" mnemonicParsing="false" onAction="#goToAboutProgramFromMenuItem" text="О программе" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane fx:id="tabPane" layoutY="25.0" prefHeight="478.0" prefWidth="650.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Главная">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="aboutAuthorBtn" layoutX="25.0" layoutY="386.0" mnemonicParsing="false" onAction="#goToAboutAuthor" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: aqua; -fx-border-radius: 25px;" text="Об авторе" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="aboutProgramBtn" layoutX="153.0" layoutY="386.0" mnemonicParsing="false" onAction="#goToAboutProgram" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: aqua; -fx-border-radius: 5em;" text="О программе" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>                           
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="exitBtn" layoutX="517.0" layoutY="386.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" style="-fx-border-radius: 5em; -fx-background-color: aqua;" text="Выход" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>                           
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <ImageView fitHeight="265.0" fitWidth="601.0" layoutX="25.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../picture/main_image.jpg" />
+                           </image>
+                           <effect>
+                              <DropShadow blurType="TWO_PASS_BOX" color="#0fb7ff" height="22.37" radius="11.025" width="23.73" />
+                           </effect></ImageView>
+                        <Label alignment="CENTER" layoutY="23.0" prefHeight="23.0" prefWidth="650.0" text="Подоходный налог" textAlignment="CENTER">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Line endX="331.0" endY="-10.0" layoutX="320.0" layoutY="75.0" startX="-319.0" startY="-10.0">
+                           <stroke>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#14acd9" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </stroke>
+                        </Line>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab fx:id="taxTab" text="Подоходный налог">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="86.0" prefWidth="600.0">
+                     <children>
+                        <ChoiceBox fx:id="timeCBox" layoutX="274.0" layoutY="20.0" prefWidth="150.0" AnchorPane.leftAnchor="274.0" AnchorPane.topAnchor="30.0" />
+                        <Label layoutX="10.0" layoutY="20.0" prefHeight="25.0" prefWidth="256.0" text="1. Период, за который производится расчёт:" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="30.0">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="5.0" prefHeight="25.0" prefWidth="100.0" text="Денежная единица - белорусский рубль (бел.руб.)" wrapText="true" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="12.0">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="9.0" layoutY="61.0" prefHeight="40.0" prefWidth="650.0" text="2. Сумма выручки от реализации товаров(работ, услуг), имущественных прав за выбранный период( без налога на добавленную стоимость)" wrapText="true" AnchorPane.bottomAnchor="348.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="61.0">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+						</Label>
+                       	<fx:define>
+                           <ArrayList fx:id="arrayTField">
+	                          <TextField fx:id="salesIncomeTField" layoutX="10.0" layoutY="101.0" promptText="0.00" />
+	                          <TextField fx:id="nonSalesIncomeTField" layoutX="10.0" layoutY="151.0" promptText="0.00" />
+	                          <TextField fx:id="costsOnBusinessTField" layoutX="10.0" layoutY="283.0" promptText="0.00" />
+	                       </ArrayList>
+                        </fx:define>
+                        <Label layoutX="11.0" layoutY="126.0" prefHeight="25.0" prefWidth="627.0" text="3. Сумма внереализационных доходов за выбранный период(без налога на добавленную стоимость)" wrapText="true" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="12.0">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="9.0" layoutY="183.0" text="4. Наличие места основной работы" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="11.0">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="yesWorkRBtn" layoutX="16.0" layoutY="210.0" mnemonicParsing="false" onAction="#YesWorkRBtn" prefHeight="30.0" prefWidth="50.0" selected="true" text="Да">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Work" />
+                           </toggleGroup>
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="noWorkRBtn" layoutX="125.0" layoutY="210.0" mnemonicParsing="false" onAction="#NoWorkRBtn" prefHeight="30.0" prefWidth="50.0" text="Нет" toggleGroup="$Work">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                        </RadioButton>
+                        <Label layoutX="17.0" layoutY="247.0" prefHeight="36.0" prefWidth="641.0" text="5. Сумма расходов за выбранный период, связанных с осуществлением предпринимательской деятельности" wrapText="true">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Pane layoutX="319.0" layoutY="311.0" prefHeight="83.0" prefWidth="210.0" AnchorPane.bottomAnchor="55.0" AnchorPane.rightAnchor="121.0">
+                           <children>
+                              <Label layoutX="34.0" layoutY="14.0" text="Налог к уплате" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="taxTField" editable="false" layoutX="27.0" layoutY="41.0" />
+                           </children>
+                        </Pane>
+                        <Button fx:id="calculateTaxBtn" layoutX="25.0" layoutY="335.0" mnemonicParsing="false" onAction="#calculateTax" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: aqua;" text="Посчитать" AnchorPane.bottomAnchor="79.0">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="goDBBtn" layoutX="25.0" layoutY="370.0" mnemonicParsing="false" onAction="#goToDbTab" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: aqua;" text="Перейти к БД" AnchorPane.bottomAnchor="30.0">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Line endX="147.0" endY="-56.5" layoutX="503.0" layoutY="351.0" startX="-268.5" startY="-56.5">
+                           <stroke>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#3db8da" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </stroke>
+                        </Line>
+                        <Line endX="-121.0" endY="150.0" layoutX="355.0" layoutY="299.0" startX="-121.0" startY="-4.0">
+                           <stroke>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#0fcbe8" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </stroke>
+                        </Line>
+                        <fx:reference source ="salesIncomeTField"/>
+                        <fx:reference source ="nonSalesIncomeTField"/>
+                        <fx:reference source ="costsOnBusinessTField"/>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="extraTab" text="Дополнительно">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="20.0" prefHeight="51.0" prefWidth="637.0" text="6.  Наличие права на льготы(инвалид I или II группы, инвалид с детства, участник боевых действий на территории других государств и др.)" wrapText="true" AnchorPane.leftAnchor="10.0">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font></Label>
+                        <Label layoutX="19.0" layoutY="74.0" prefHeight="17.0" prefWidth="563.0" text="7. Вдова(вдовец), одинокий родитель, приёмный родитель ,опекун или попечитель" AnchorPane.leftAnchor="10.0">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font></Label>
+                        <Label layoutX="16.0" layoutY="122.0" text="8 Количество детей до 18 лет" AnchorPane.leftAnchor="10.0">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font></Label>
+                        <Label layoutX="10.0" layoutY="217.0" prefHeight="62.0" prefWidth="632.0" text="10. Сумма расходов за выбранный период по страховым взносам по договорам добровольного страховани жизни и дополнительной пенсии, заключенным на срок не менее трёх лет, а также по договорам добровольного страхования медицинских расходов" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="217.0">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font></Label>
+                        <Label layoutX="16.0" layoutY="172.0" text="9. Количество иждивенцев" AnchorPane.leftAnchor="10.0">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font></Label>
+                        <Label layoutX="13.0" layoutY="304.0" prefHeight="40.0" prefWidth="627.0" text="11. Сумма расходов за выбранный период на получение первого платного образования своего либо близких родственников" wrapText="true" AnchorPane.leftAnchor="13.0">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font></Label>
+                        <RadioButton fx:id="yesPriviligesRBtn" layoutX="23.0" layoutY="51.0" mnemonicParsing="false" text="Да">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Privileges" />
+                           </toggleGroup>
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="noPriviligesRBtn" layoutX="77.0" layoutY="51.0" mnemonicParsing="false" selected="true" text="Нет" toggleGroup="$Privileges">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font></RadioButton>
+                        <RadioButton fx:id="yesFaceRBtn" layoutX="23.0" layoutY="98.0" mnemonicParsing="false" text="Да">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Face" />
+                           </toggleGroup>
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="noFaceRBtn" layoutX="77.0" layoutY="98.0" mnemonicParsing="false" selected="true" text="Нет" toggleGroup="$Face">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font></RadioButton>
+                        <Pane layoutX="194.0" layoutY="112.0" prefHeight="106.0" prefWidth="446.0">
+                           <children>
+                              <Label layoutX="7.0" layoutY="33.0" prefHeight="25.0" prefWidth="232.0" text="Из них количество детей-инвалидов">
+                                 <font>
+                                    <Font name="Arial" size="12.0" />
+                                 </font></Label>
+                              <TextField fx:id="numberOfDisabledChildTField" layoutX="250.0" layoutY="33.0" promptText="0" />
+                           </children>
+                        </Pane>
+                        <fx:define>
+                           <ArrayList fx:id="array2TField">
+                              <TextField fx:id="numberOfChildTField" layoutX="23.0" layoutY="144.0" promptText="0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="144.0" />
+                              <TextField fx:id="nubmerOfDependentsTField" layoutX="23.0" layoutY="194.0" promptText="0" AnchorPane.leftAnchor="10.0" />
+                              <TextField fx:id="costsOfPaymentTField" layoutX="10.0" layoutY="279.0" promptText="0.00" AnchorPane.leftAnchor="10.0" />
+                              <TextField fx:id="costsOfBuildingTField" layoutX="11.0" layoutY="410.0" promptText="0.00" AnchorPane.leftAnchor="10.0" />
+                              <TextField fx:id="costsOfEducationTField" layoutX="10.0" layoutY="344.0" promptText="0.00" AnchorPane.leftAnchor="10.0" />
+                           </ArrayList>
+                        </fx:define>
+                        <Label layoutX="9.0" layoutY="369.0" prefHeight="41.0" prefWidth="632.0" text="12. Сумма расходов за выбранный период на строительство либо приобретение жилья для нуждающихся в улучшении жилищных условий" wrapText="true" AnchorPane.leftAnchor="9.0">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font></Label>
+                        <Button fx:id="goBackBtn" layoutX="530.0" layoutY="100.0" mnemonicParsing="false" onAction="#goToTaxTab" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: aqua;" text="Назад" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <fx:reference source ="numberOfChildTField"/>
+                        <fx:reference source ="nubmerOfDependentsTField"/>  
+                        <fx:reference source ="costsOfPaymentTField"/>
+                        <fx:reference source ="costsOfBuildingTField"/>
+                        <fx:reference source ="costsOfEducationTField"/>  
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab fx:id="dbTab" text="База данных">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="414.0" prefWidth="600.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="10.0" layoutY="22.0" prefHeight="25.0" prefWidth="110.0" text="Фамилия">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font></Label>
+                        <Label alignment="CENTER" layoutX="120.0" layoutY="22.0" prefHeight="25.0" prefWidth="110.0" text="Имя">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font></Label>
+                        <Label alignment="CENTER" layoutX="250.0" layoutY="22.0" prefHeight="25.0" prefWidth="80.0" text="Налог">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="surnameOnDbTabTField" layoutX="10.0" layoutY="49.0" prefHeight="25.0" prefWidth="110.0" promptText="Введите фамилию" AnchorPane.leftAnchor="10.0" />
+                        <TextField fx:id="nameOnDbTabTField" layoutX="130.0" layoutY="49.0" prefHeight="25.0" prefWidth="110.0" promptText="Введите имя" />
+                        <TextField fx:id="taxOnDbTabTField" editable="false" layoutX="250.0" layoutY="49.0" prefHeight="25.0" prefWidth="80.0"/>
+                        <Button fx:id="cleansingOnDbTabBtn" layoutX="458.0" layoutY="49.0" mnemonicParsing="false" onAction="#clearTextOnDbTab" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: aqua;" text="Очистить">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <TableView fx:id="taxTableView" layoutX="10.0" layoutY="110.0" prefHeight="310.0" prefWidth="430.0">
+                           <columns>
+                              <TableColumn fx:id="surnameTColumn" prefWidth="120.0" text="Фамилия" />
+                              <TableColumn fx:id="nameTColumn" prefWidth="110.0" text="Имя" />
+                              <TableColumn fx:id="periodTColumn" prefWidth="100.0" text="Период" />
+                              <TableColumn fx:id="taxTColumn" prefWidth="100.0" text="Налог к уплате" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="preservationBtn" layoutX="458.0" layoutY="110.0" mnemonicParsing="false" onAction="#saveToDb" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: aqua;" text="Сохранить в бд" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button fx:id="loadFromDBBtn" layoutX="458.0" layoutY="157.0" mnemonicParsing="false" onAction="#loadFromDb" prefHeight="18.0" prefWidth="180.0" style="-fx-background-color: aqua;" text="Загрузить из бд" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button fx:id="chosenUserBtn" alignment="CENTER" layoutX="458.0" layoutY="204.0" mnemonicParsing="false" onAction="#deleteChosenUserFromTableView" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: aqua;" text="Удалить пользователя" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button fx:id="usersBtn" alignment="CENTER" layoutX="458.0" layoutY="251.0" mnemonicParsing="false" onAction="#showUsers" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: aqua;" text="Вывести введённых" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button fx:id="additionBtn" layoutX="341.0" layoutY="49.0" mnemonicParsing="false" onAction="#addInTableView" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: aqua;" text="Добавить">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Line endX="549.0" layoutX="101.0" layoutY="92.0" startX="-100.0">
+                           <stroke>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#16a1d3" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </stroke>
+                        </Line>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
